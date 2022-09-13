@@ -23,6 +23,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        //'auth' => JWTAuthenticationFilter::class,
+        'cors' => \App\Filters\Cors::class,
     ];
 
     /**
@@ -36,6 +38,7 @@ class Filters extends BaseConfig
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
+          'cors'
         ],
         'after' => [
             'toolbar',
@@ -68,5 +71,14 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+//      'auth' => [
+//        'before' => [
+//          'quest',
+//          'quest/*',
+//          'user',
+//          'user/*',
+//        ],
+//      ],
+    ];
 }
