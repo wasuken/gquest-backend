@@ -57,3 +57,4 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 $routes->post('/login', 'Auth::login');
 // $routes->get('/refresh', 'Auth::refresh');
 $routes->post('/signup', 'Auth::register');
+$routes->get('/quests', 'Quest::index');
