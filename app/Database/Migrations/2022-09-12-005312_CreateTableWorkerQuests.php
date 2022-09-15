@@ -27,11 +27,9 @@ class CreateTableWorkerQuests extends Migration
             'constraint' => 10,
             'unsigned' => true,
           ],
-          'name' => [
-            'type' => 'VARCHAR',
-            'constraint' => '100',
-            'null' => false
-          ],
+          // 0 => 交渉中等。なんらかの要因により特定のワーカーが予約しているような状態
+          // 1 => 受領中。
+          // 2 => 達成
           'status' => [
             'type' => 'SMALLINT',
             'constraint' => 3,

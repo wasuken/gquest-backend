@@ -14,27 +14,22 @@ class CreateTableUser extends Migration
             'constraint' => 10,
             'unsigned' => true,
             'auto_increment' => true,
-
           ],
           'name' => [
             'type' => 'VARCHAR',
             'constraint' => '100',
             'null' => false
-
           ],
           'email' => [
             'type' => 'VARCHAR',
             'constraint' => '100',
             'null' => false,
             'unique' => true
-
           ],
           'password_hash' => [
             'type' => 'VARCHAR',
             'constraint' => '255',
             'null' => false,
-            'unique' => true
-
           ],
           'updated_at' => [
             'type' => 'datetime',
