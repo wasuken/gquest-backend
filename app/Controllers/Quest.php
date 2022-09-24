@@ -20,8 +20,8 @@ use App\Models\QuestModel;
 class Quest extends BaseController
 {
     /**
-     * index 
-     * 
+     * index
+     *
      * @access public
      * @return void
      */
@@ -34,14 +34,20 @@ class Quest extends BaseController
         // 誰も受けてないクエストのみ
         // サブクエリだるそうだったのでJoinにした。遅すぎとかなら修正する
         $quests = $qm
-            ->select("quests.*, worker_quests.id as wq_id")
-            ->join("worker_quests", "worker_quests.quest_id = quests.id", "left outer")
+            ->select("quests.*, users.name as client_name, worker_quests.id as wq_id")
+            ->join(
+                "worker_quests",
+                "worker_quests.quest_id = quests.id",
+                "left outer"
+            )
+            ->join("clients", "clients.id = quests.client_id")
+            ->join("users", "clients.user_id = users.id")
             ->where("worker_quests.id is NULL")
             ->findAll();
         return $this->getResponse(
             [
                 'message' => '',
-                'clients' => $quests,
+                'quests' => $quests,
             ]
         );
     }

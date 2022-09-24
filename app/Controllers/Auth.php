@@ -104,6 +104,7 @@ class Auth extends BaseController
                   $responseCode
               );
         } catch (Exception $exception) {
+          mdebug($exception->__toString());
             return $this
               ->getResponse(
                   [

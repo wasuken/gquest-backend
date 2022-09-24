@@ -52,13 +52,25 @@ class TestSeed extends Seeder
             ]);
 
             // quests
-            $this->db->query("insert into quests(id, client_id, manage_guild_member_id, description, reward, reward_yen) values(:quest_id:, :client_id:, :manage_guild_member_id:, :description:, :reward:, :reward_yen:)", [
+            $this->db->query("insert into quests(id, client_id, title, manage_guild_member_id, description, reward, reward_yen, limit_date) values(:quest_id:, :client_id:, :title:, :manage_guild_member_id:, :description:, :reward:, :reward_yen:, :limit_date:)", [
               "quest_id" => 1,
               "client_id" => 1,
               "manage_guild_member_id" => 0,
-              "description" => "リオなんとかを討伐せよ",
+              "description" => "もうだめだ...おしまいだぁ...",
+              "title" => "リオなんとかを討伐せよ",
               "reward" => "10000yen+素材諸々",
               "reward_yen" => "50000",
+              "limit_date" => "2022-10-10 00:00:00",
+            ]);
+            $this->db->query("insert into quests(id, client_id, title, manage_guild_member_id, description, reward, reward_yen, limit_date) values(:quest_id:, :client_id:, :title:, :manage_guild_member_id:, :description:, :reward:, :reward_yen:, :limit_date:)", [
+              "quest_id" => 2,
+              "client_id" => 1,
+              "manage_guild_member_id" => 0,
+              "title" => "ゴブリンを倒せ！",
+              "description" => "C級冒険者昇格試験です",
+              "reward" => "2000yen+素材諸々",
+              "reward_yen" => "10000",
+              "limit_date" => "2022-10-20 00:00:00",
             ]);
 
             // worker_quests
