@@ -15,7 +15,6 @@ class CreateTableQuests extends Migration
             'constraint' => 10,
             'unsigned' => true,
             'auto_increment' => true,
-
           ],
           'client_id' => [
             'type' => 'INT',
@@ -26,6 +25,9 @@ class CreateTableQuests extends Migration
             'type' => 'INT',
             'constraint' => 10,
             'unsigned' => true,
+          ],
+          'title' => [
+            'type' => 'TEXT',
           ],
           'description' => [
             'type' => 'TEXT',
@@ -38,10 +40,13 @@ class CreateTableQuests extends Migration
             'constraint' => 10,
             'unsigned' => true,
           ],
+          'limit_date' => [
+            'type' => 'datetime',
+            'null' => true,
+          ],
           'updated_at' => [
             'type' => 'datetime',
             'null' => true,
-
           ],
           'created_at datetime default current_timestamp',
 
